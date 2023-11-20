@@ -1,6 +1,5 @@
 <?php
     include("database.php");
-    include("header.php");
     session_start();
 ?>
 <!DOCTYPE html>
@@ -14,6 +13,9 @@
     <title>Index</title>
 </head>
 <body class="m-1 bg-dark text-light">
+    <div class="h1">
+        LOGIN
+    </div>
     <form class="m-3" action="<?php htmlspecialchars($_SERVER["PHP_SELF"])?>" method="post">
         <div class="row">
             <div class="col-2">NRP: </div>
