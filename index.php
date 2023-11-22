@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/84520cd5ff.js" crossorigin="anonymous"></script>
     <title>Index</title>
@@ -23,21 +24,24 @@
     <div class="d-flex justify-content-center p-3">
         
             <Form class="text-white">
-                <div class="mx-3 my-3 border rounded-pill p-3 act">
-                <input type="text" namespace = "Username" id = "Username" placeholder="Username" class="text-white">
+                <div class="mx-3 my-3 border rounded-pill p-3 act ">
+                <input type="text" namespace = "Username" id = "Username" placeholder="Username" class="text-white" id = "user">
                 <i class="fa-regular fa-user mx-1"></i>
                 </div>
-                <div class="mx-3 my-3 border rounded-pill p-3 act">
-                <input type="password" namespace = "Password" id = "Password" placeholder="Password" class="text-white">
-                <i class="fa-regular fa-eye"></i> 
+                <div class="mx-3 my-3 border rounded-pill p-3 act ">
+                <input type="password" namespace = "Password" id = "Password" placeholder="Password" class="text-white" id="pass">
+                <i class="fa-regular fa-eye"></i>
+            </div>
+            <div  class="text-white">
+                <p id="confirm"></p>
             </div>
                 <div class="row mt-4 text-center mb-3">
                     <div class="col-sm-6 mb-3">
-                        <button class="border rounded-pill p-2 px-3">Log In</button> 
+                        <button class="border rounded-pill p-2 px-3" id="tes">Log In</button> 
 
                     </div>
                     <div class="col-sm-6">
-                        <button class="border rounded-pill p-2 px-3">Sign Up</button>
+                        <button class="border rounded-pill p-2 px-3" id="tes1">Sign Up</button>
                     </div>
         
         </form>
@@ -50,7 +54,7 @@
     </div>
 </div>
 
-    
+    <script src="index.js"></script>
 </body>
 </html>
 <?php
