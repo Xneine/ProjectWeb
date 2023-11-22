@@ -42,11 +42,11 @@
                 <p id="confirm"></p>
             </div>
                 <div class="row mt-4 text-center mb-3">
-                    <div class="col-sm-6 mb-3">
-                        <button class="border rounded-pill p-2 px-3" id="tes">Log In</button>
+                    <div class="col-sm-6 mb-3 hh">
+                    <a href="register.php" class="btn border rounded-pill p-2 px-3">Log In</a>
                     </div>
-                    <div class="col-sm-6">
-                        <button class="border rounded-pill p-2 px-3" id="tes1">Sign Up</button>
+                    <div class="col-sm-6 hh">
+                        <a href="register.php" class="btn border rounded-pill p-2 px-3">Sign Up</a>
                     </div>
         
         </form>

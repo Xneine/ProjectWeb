@@ -39,3 +39,15 @@ button:hover{
     background: transparent;
     
 }
+.hh a{
+    
+    background: none;
+    color: white;
+    border-color: white;
+}
+.hh a:hover{
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    transition: 0.5s;
+}
