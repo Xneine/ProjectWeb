@@ -37,5 +37,5 @@ button:hover{
 .bb{
     backdrop-filter: blur(20px);
     background: transparent;
-    border-radius: 20px;
+    
 }
