@@ -1,0 +1,41 @@
+body{
+    height: 100vh;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("Assets/bg-login.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-image: radial-gradient(circle, #464ef8, #007fff, #0aa6ff, #6ec8ff, #b7e5fd); */
+}
+input{
+    outline: none;
+    border: none;
+    background: none;
+}
+input::placeholder{
+    color: white;
+}
+.act:hover{
+   
+box-shadow: 2px 2px 5px #fbfdff;
+transition: 0.25s;
+}
+button{
+    background: none;
+    color: white;
+    border-color: white;
+}
+button:hover{
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    transition: 0.5s;
+}
+.bb{
+    backdrop-filter: blur(20px);
+    background: transparent;
+    border-radius: 20px;
+}
