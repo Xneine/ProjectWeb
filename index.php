@@ -29,7 +29,7 @@
                 </div>
                 <div class="mx-3 my-3 border rounded-pill p-3 act">
                 <input type="password" namespace = "Password" id = "Password" placeholder="Password" class="text-white">
-                <i class="fa-regular fa-lock"></i> 
+                <i class="fa-regular fa-eye"></i> 
             </div>
                 <div class="row mt-4 text-center mb-3">
                     <div class="col-sm-6 mb-3">
