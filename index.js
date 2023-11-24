@@ -13,3 +13,14 @@ function validation(){
         document.getElementById("confirm").innerHTML = "Pls Fill the pass  & Usern"
     }
 }
+const togglePassword = document.querySelector("#bruh");
+const password = document.querySelector("#Password");
+
+togglePassword.addEventListener("click", function () {
+    // toggle the type attribute
+    const type = password.getAttribute("type") === "password" ? "text" : "password";
+    password.setAttribute("type", type);
+    
+    // toggle the icon
+    this.classList.toggle("bi-eye");
+});

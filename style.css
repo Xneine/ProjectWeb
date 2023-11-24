@@ -35,7 +35,7 @@ button:hover{
     transition: 0.5s;
 }
 .bb{
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(55px);
     background: transparent;
     
 }
@@ -46,6 +46,22 @@ button:hover{
     border-color: white;
 }
 .hh a:hover{
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    transition: 0.5s;
+}
+/* textarea{
+   
+    background: transparent;
+    border: none;
+    outline: none;
+    background-color: rgba(0,0, 0, 0);
+} */
+#signup{
+    color: white;
+}
+.hh #signup:hover{
     cursor: pointer;
     background-color: white;
     color: black;
