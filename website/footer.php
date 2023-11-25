@@ -14,7 +14,7 @@
     <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
         <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
             <div class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                <span class="fs-5 d-none d-sm-inline">HEADER</span>
+                <span class="fs-5 d-none d-sm-inline">FOOTER</span>
             </div>
             <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                 <!-- ini bagian HOME -->
@@ -32,13 +32,13 @@
                     <div class="collapse" id="submenu1">
                         <ul class="nav flex-column ms-1">
                             <li class="w-100">
-                                <a href="//localhost//website/Produk_FINAL/kategori.php" class="nav-link px-0"> <span class="d-none d-sm-inline">Kategori</span></a>
+                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Kategori</span></a>
                             </li>
                             <li>
-                                <a href="//localhost//website/Produk_FINAL/satuan.php" class="nav-link px-0"> <span class="d-none d-sm-inline">Satuan</span></a>
+                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Satuan</span></a>
                             </li>
                             <li>
-                                <a href="//localhost//website/Produk_FINAL/produk.php" class="nav-link px-0"> <span class="d-none d-sm-inline">Detail Produk</span></a>
+                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Detail Produk</span></a>
                             </li>
                         </ul>
                     </div>

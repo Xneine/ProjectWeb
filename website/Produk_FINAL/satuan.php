@@ -14,7 +14,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     </script>
-    <title>Kategori</title>
+    <title>Satuan</title>
 </head>
 <body>
     <div class="container-fluid">
@@ -23,11 +23,11 @@
           include("../header.php");
           ?>
             <div class="container">
-                <h1 class="text-center mt-3">KATEGORI PRODUK</h1>
+                <h1 class="text-center mt-3">SATUAN PRODUK</h1>
 
                 <div class="card mt-3">
                     <div class="card-header bg-primary text-white">
-                        Data Kategori
+                        Data Satuan
                     </div>
                     <div class="card-body">
                         <!-- Button trigger modal -->
@@ -38,17 +38,17 @@
                         <table class="table table-bordered table-striped table-hover">
                             <tr>
                                 <th>No</th>
-                                <th>Kategori</th>
+                                <th>Satuan</th>
                                 <th>Aksi</th>
                             </tr>
                             <?php
                                 $no = 1;
-                                $tampil = mysqli_query($conn, "SELECT * FROM kategori ORDER BY id_ktg DESC");
+                                $tampil = mysqli_query($conn, "SELECT * FROM satuan ORDER BY id_satuan DESC");
                                 while($data = mysqli_fetch_array($tampil)):
                             ?>
                             <tr>
                                 <td><?= $no++?></td>
-                                <td><?= $data['Nama_Kategori']?></td>
+                                <td><?= $data['nama_satuan']?></td>
                                 <td>
                                     <a href="#" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModal<?= $no?>">Ubah</a>
                                     <a href="#" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal<?= $no?>">Hapus</a>
@@ -59,15 +59,15 @@
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                     <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Kategori</h1>
+                                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Satuan</h1>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
-                                    <form method="POST" action="CRUD_kategori.php">
-                                        <input type="hidden" name="idktg" value="<?= $data['id_ktg']?>">
+                                    <form method="POST" action="CRUD_satuan.php">
+                                        <input type="hidden" name="idstn" value="<?= $data['id_satuan']?>">
                                         <div class="modal-body">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Nama Kategori</label>
-                                                    <input type="text" class="form-control" placeholder="Masukan Kategori Baru!" name="nkategori" value="<?= $data['Nama_Kategori']?>">
+                                                    <label class="form-label">Nama Satuan</label>
+                                                    <input type="text" class="form-control" name="nsatuan" value="<?= $data['nama_satuan']?>">
                                                 </div>
                                         </div>
                                         <div class="modal-footer">
@@ -87,11 +87,11 @@
                                         <h1 class="modal-title fs-5" id="staticBackdropLabel">Konfirmasi Hapus Data</h1>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
-                                    <form method="POST" action="CRUD_kategori.php">
-                                        <input type="hidden" name="idktg" value="<?= $data['id_ktg']?>">
+                                    <form method="POST" action="CRUD_satuan.php">
+                                        <input type="hidden" name="idstn" value="<?= $data['id_satuan']?>">
                                         <div class="modal-body">
                                             <h5 class="text-center">Apakah Anda yakin menghapus data ini? <br>
-                                            <span class="text-danger"><?= $data['Nama_Kategori']?></span>                                    
+                                            <span class="text-danger"><?= $data['nama_satuan']?></span>                                    
                                             </h5>
 
                                         </div>
@@ -112,14 +112,14 @@
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                 <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Add Kategori</h1>
+                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Add Satuan</h1>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
-                                <form method="POST" action="CRUD_kategori.php">
+                                <form method="POST" action="CRUD_satuan.php">
                                     <div class="modal-body">
                                             <div class="mb-3">
-                                                <label class="form-label">Nama Kategori</label>
-                                                <input type="text" class="form-control" placeholder="Masukan Kategori Baru!" name="nkategori">
+                                                <label class="form-label">Nama Satuan</label>
+                                                <input type="text" class="form-control" placeholder="Masukan Satuan Baru!" name="nsatuan">
                                             </div>
                                     </div>
                                     <div class="modal-footer">

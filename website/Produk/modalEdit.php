@@ -1,3 +1,4 @@
+<!-- STOP -->
 <?php
     $method = $_SESSION['method2'];
     $namaa = "";

@@ -7,6 +7,7 @@
         include('modalAdd.php');
     }
     function modalEdit($method, $id_ktg) {
+        echo '<script type="text/javascript">alert("' . $id_ktg . '");</script>';
         $_SESSION['method2'] = $method;
         $_SESSION['entity2'] = 'kategori';
         $_SESSION['id_ktg'] = $id_ktg;
@@ -43,9 +44,6 @@
                             <li class="list-group-item">
                                 <?php
                                 modalAdd('Add');
-                                ?>
-                                <?php
-                                modalAdd('Anying');
                                 ?>
                             </li>
                             <li class="list-group-item showshow">
