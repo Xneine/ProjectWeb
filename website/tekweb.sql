@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 23, 2023 at 03:11 PM
+-- Generation Time: Nov 25, 2023 at 05:01 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -20,19 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `tekweb`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `user`
---
-
-CREATE TABLE `user` (
-  `username` varchar(25) NOT NULL,
-  `nama_lengkap` varchar(50) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -59,13 +46,6 @@ INSERT INTO `users` (`NRP`, `nama`, `email`, `password`) VALUES
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`username`),
-  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- Indexes for table `users`
