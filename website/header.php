@@ -54,17 +54,17 @@
                     <div class="collapse" id="submenu2">
                         <ul class="nav flex-column ms-1">
                             <li class="w-100">
-                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Stok Masuk</span></a>
+                                <a href="//localhost//website/stok/stok_masuk.php" class="nav-link px-0"> <span class="d-none d-sm-inline">Stok Masuk</span></a>
                             </li>
                             <li>
-                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Stok Keluar</span></a>
+                                <a href="//localhost//website/stok/stok_keluar.php" class="nav-link px-0"> <span class="d-none d-sm-inline">Stok Keluar</span></a>
                             </li>
                         </ul>
                     </div>
                 </li>
                 <!-- ini bagian TRANSAKSI -->
                 <li class="nav-item">
-                    <a href="#" class="nav-link px-0 align-middle">
+                    <a href="//localhost//website/transaksi/transaksi.php" class="nav-link px-0 align-middle">
                         <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Transaksi</span> </a>
                 </li>
                 <!-- ini bagian LAPORAN -->
