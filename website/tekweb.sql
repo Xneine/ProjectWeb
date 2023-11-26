@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 26, 2023 at 04:17 AM
+-- Generation Time: Nov 26, 2023 at 08:40 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -97,8 +97,8 @@ CREATE TABLE `produk` (
 --
 
 INSERT INTO `produk` (`id_produk`, `nama_produk`, `satuan`, `kategori`, `harga`, `stok`) VALUES
-('CILOK123', 'CILOK CHAWNIMA', 1, 9, 12000, 20),
-('KOPI123', 'KOPI Phei', 1, 10, 15000, 80);
+('CILOK123', 'CILOK CHAWNIMA', 1, 9, 12000, 15),
+('KOPI123', 'KOPI Phei', 1, 10, 15000, 75);
 
 -- --------------------------------------------------------
 
@@ -117,6 +117,7 @@ CREATE TABLE `satuan` (
 
 INSERT INTO `satuan` (`id_satuan`, `nama_satuan`) VALUES
 (1, 'bongkoes'),
+(4, 'kg'),
 (2, 'pcss');
 
 -- --------------------------------------------------------
@@ -161,6 +162,39 @@ CREATE TABLE `stokmasuk` (
 INSERT INTO `stokmasuk` (`id_sm`, `tanggal`, `id_produk`, `jumlah`, `id_keterangan`) VALUES
 (4, '2023-11-26 02:56:47', 'KOPI123', 100, 1),
 (5, '2023-11-26 02:58:21', 'CILOK123', 20, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `temp_trans`
+--
+
+CREATE TABLE `temp_trans` (
+  `id_temp` int(11) NOT NULL,
+  `id_produk` varchar(50) NOT NULL,
+  `jumlah` int(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `transaksi`
+--
+
+CREATE TABLE `transaksi` (
+  `id_transaksi` int(11) NOT NULL,
+  `tanggal` timestamp NOT NULL DEFAULT current_timestamp(),
+  `id_produk` varchar(50) NOT NULL,
+  `jumlah` int(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `transaksi`
+--
+
+INSERT INTO `transaksi` (`id_transaksi`, `tanggal`, `id_produk`, `jumlah`) VALUES
+(1, '2023-11-26 07:27:54', 'KOPI123', 5),
+(2, '2023-11-26 07:27:54', 'CILOK123', 5);
 
 -- --------------------------------------------------------
 
@@ -263,6 +297,20 @@ ALTER TABLE `stokmasuk`
   ADD KEY `id_produk` (`id_produk`);
 
 --
+-- Indexes for table `temp_trans`
+--
+ALTER TABLE `temp_trans`
+  ADD PRIMARY KEY (`id_temp`),
+  ADD UNIQUE KEY `id_produk` (`id_produk`);
+
+--
+-- Indexes for table `transaksi`
+--
+ALTER TABLE `transaksi`
+  ADD PRIMARY KEY (`id_transaksi`),
+  ADD KEY `id_produk` (`id_produk`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -302,7 +350,7 @@ ALTER TABLE `keteranganmasuk`
 -- AUTO_INCREMENT for table `satuan`
 --
 ALTER TABLE `satuan`
-  MODIFY `id_satuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_satuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `stokkeluar`
@@ -315,6 +363,18 @@ ALTER TABLE `stokkeluar`
 --
 ALTER TABLE `stokmasuk`
   MODIFY `id_sm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `temp_trans`
+--
+ALTER TABLE `temp_trans`
+  MODIFY `id_temp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `transaksi`
+--
+ALTER TABLE `transaksi`
+  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
@@ -340,6 +400,18 @@ ALTER TABLE `stokkeluar`
 ALTER TABLE `stokmasuk`
   ADD CONSTRAINT `stokmasuk_ibfk_1` FOREIGN KEY (`id_keterangan`) REFERENCES `keteranganmasuk` (`id_km`),
   ADD CONSTRAINT `stokmasuk_ibfk_2` FOREIGN KEY (`id_produk`) REFERENCES `produk` (`id_produk`);
+
+--
+-- Constraints for table `temp_trans`
+--
+ALTER TABLE `temp_trans`
+  ADD CONSTRAINT `temp_trans_ibfk_1` FOREIGN KEY (`id_produk`) REFERENCES `produk` (`id_produk`);
+
+--
+-- Constraints for table `transaksi`
+--
+ALTER TABLE `transaksi`
+  ADD CONSTRAINT `transaksi_ibfk_1` FOREIGN KEY (`id_produk`) REFERENCES `produk` (`id_produk`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
