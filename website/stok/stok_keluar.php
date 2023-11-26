@@ -1,8 +1,9 @@
 <?php
-    include("../database.php");
+include("../database.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,12 +17,13 @@
     </script>
     <title>Stok Keluar</title>
 </head>
+
 <body>
     <div class="container-fluid">
         <div class="row flex-nowrap">
-          <?php
-          include("../header.php");
-          ?>
+            <?php
+            include("../header.php");
+            ?>
             <div class="container">
                 <h1 class="text-center mt-3">STOK KELUAR</h1>
 
@@ -40,29 +42,29 @@
                                 <th>No</th>
                                 <th>Tanggal</th>
                                 <!-- FOREIGN KEY -->
-                                <th>Barcode(id)</th> 
+                                <th>Barcode(id)</th>
                                 <th>Nama Produk</th>
                                 <th>Jumlah</th>
                                 <!-- FOREIGN KEY -->
                                 <th>Keterangan</th>
                             </tr>
                             <?php
-                                $no = 1;
-                                $tampil = mysqli_query($conn, "SELECT * FROM stokkeluar ORDER BY id_sk DESC");
-                                while($data = mysqli_fetch_array($tampil)):
-                                    $produk = mysqli_query($conn, "SELECT * FROM produk WHERE id_produk = '$data[id_produk]'");
-                                    $data_produk = mysqli_fetch_assoc($produk);
-                                    $keterangan = mysqli_query($conn, "SELECT * FROM keterangankeluar WHERE id_kk = '$data[id_keterangan]'");
-                                    $data_keterangan = mysqli_fetch_assoc($keterangan);
+                            $no = 1;
+                            $tampil = mysqli_query($conn, "SELECT * FROM stokkeluar ORDER BY id_sk DESC");
+                            while ($data = mysqli_fetch_array($tampil)) :
+                                $produk = mysqli_query($conn, "SELECT * FROM produk WHERE id_produk = '$data[id_produk]'");
+                                $data_produk = mysqli_fetch_assoc($produk);
+                                $keterangan = mysqli_query($conn, "SELECT * FROM keterangankeluar WHERE id_kk = '$data[id_keterangan]'");
+                                $data_keterangan = mysqli_fetch_assoc($keterangan);
                             ?>
-                            <tr>
-                                <td><?= $no++?></td>
-                                <td><?= $data['tanggal']?></td>
-                                <td><?= $data_produk['id_produk']?></td>
-                                <td><?= $data_produk['nama_produk']?></td>
-                                <td><?= $data['jumlah']?></td>
-                                <td><?= $data_keterangan['nama_kk']?></td>
-                            </tr>
+                                <tr>
+                                    <td><?= $no++ ?></td>
+                                    <td><?= $data['tanggal'] ?></td>
+                                    <td><?= $data_produk['id_produk'] ?></td>
+                                    <td><?= $data_produk['nama_produk'] ?></td>
+                                    <td><?= $data['jumlah'] ?></td>
+                                    <td><?= $data_keterangan['nama_kk'] ?></td>
+                                </tr>
                             <?php endwhile; ?>
                         </table>
 
@@ -74,19 +76,19 @@
                                         <h1 class="modal-title fs-5" id="staticBackdropLabel">Add Stok Keluar</h1>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
-                                    <form method="POST" action="CRUD_sk.php">
+                                    <form method="POST" action="CRUD_transaksi.php">
                                         <div class="modal-body">
                                             <div class="mb-3">
                                                 <label class="form-label">Pilih Barcode</label>
                                                 <select class="form-select" name="nproduk" id="nproduk">
                                                     <option></option>
-                                                    <?php 
-                                                        $propro = mysqli_query($conn, "SELECT * FROM produk ORDER BY id_produk DESC");
-                                                        while($hehe = mysqli_fetch_array($propro)):
+                                                    <?php
+                                                    $propro = mysqli_query($conn, "SELECT * FROM produk ORDER BY id_produk DESC");
+                                                    while ($hehe = mysqli_fetch_array($propro)) :
                                                     ?>
-                                                    <option value="<?= $hehe['id_produk']?>" data-stok="<?= $hehe['stok'] ?>">
-                                                        <?php echo $hehe['id_produk'] ?>
-                                                    </option>
+                                                        <option value="<?= $hehe['id_produk'] ?>" data-stok="<?= $hehe['stok'] ?>">
+                                                            <?php echo $hehe['id_produk'] ?>
+                                                        </option>
                                                     <?php endwhile; ?>
                                                 </select>
                                             </div>
@@ -98,13 +100,13 @@
                                                 <label class="form-label">Pilih Keterangan</label>
                                                 <select class="form-select" name="nket">
                                                     <option></option>
-                                                    <?php 
-                                                        $ketket = mysqli_query($conn, "SELECT * FROM keterangankeluar ORDER BY id_kk DESC");
-                                                        while($xixi = mysqli_fetch_array($ketket)):
+                                                    <?php
+                                                    $ketket = mysqli_query($conn, "SELECT * FROM keterangankeluar ORDER BY id_kk DESC");
+                                                    while ($xixi = mysqli_fetch_array($ketket)) :
                                                     ?>
-                                                    <option value="<?= $xixi['id_kk']?>">
-                                                        <?php echo $xixi['nama_kk'] ?>
-                                                    </option>
+                                                        <option value="<?= $xixi['id_kk'] ?>">
+                                                            <?php echo $xixi['nama_kk'] ?>
+                                                        </option>
                                                     <?php endwhile; ?>
                                                 </select>
                                             </div>
@@ -124,12 +126,11 @@
         </div>
     </div>
     <script>
-    document.getElementById('nproduk').addEventListener('change', function() {
-        var selectedOption = this.options[this.selectedIndex];
-        var maxStok = selectedOption.getAttribute('data-stok');
-        document.getElementById('maxStok').setAttribute('max', maxStok);
-    });
-</script>
-
+        document.getElementById('nproduk').addEventListener('change', function() {
+            var selectedOption = this.options[this.selectedIndex];
+            var maxStok = selectedOption.getAttribute('data-stok');
+            document.getElementById('maxStok').setAttribute('max', maxStok);
+        });
+    </script>
 </body>
 </html>

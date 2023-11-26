@@ -42,8 +42,8 @@
                                 <th>Nama Produk</th>
                                 <th>Satuan</th>
                                 <th>Kategori</th>
-                                <th>Harga</th>
                                 <th>Stok</th>
+                                <th>Harga</th>
                                 <th>Aksi</th>
                             </tr>
                             <?php
@@ -117,7 +117,7 @@
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label">Harga</label>
-                                                    <input type="number" class="form-control" 
+                                                    <input type="number" class="form-control" min="1" 
                                                     name="nharga"  value="<?= $data['harga']?>">
                                                 </div>
                                         </div>
@@ -210,7 +210,7 @@
                                             <div class="mb-3">
                                                 <label class="form-label">Harga</label>
                                                 <input type="number" class="form-control"
-                                                 name="nharga">
+                                                 name="nharga" min="1">
                                             </div>
                                     </div>
                                     <div class="modal-footer">

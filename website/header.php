@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,6 +11,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <title>Header</title>
 </head>
+
 <body>
     <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
         <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
@@ -19,7 +21,7 @@
             <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                 <!-- ini bagian HOME -->
                 <li class="nav-item">
-                    <a href="#" class="nav-link align-middle px-0">
+                    <a href="//localhost//website/login.php" class="nav-link align-middle px-0">
                         <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
                     </a>
                 </li>
@@ -47,7 +49,7 @@
                 <!-- ini bagian stok -->
                 <li class="nav-item">
                     <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                        <i class="fs-4 bi-speedometer2"></i> 
+                        <i class="fs-4 bi-speedometer2"></i>
                         <span class="ms-1 d-none d-sm-inline">Stok</span>
                         <i class="bi bi-caret-down-fill"></i>
                     </a>
@@ -73,19 +75,16 @@
                         <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Laporan</span>
                         <i class="bi bi-caret-down-fill"></i>
                     </a>
-                        <div class="collapse" id="submenu3">
-                            <ul class="nav flex-column ms-1">
-                                <li class="w-100">
-                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Stok Masuk</span></a>
-                                </li>
-                                <li>
-                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Stok Keluar</span></a>
-                                </li>
-                                <li>
-                                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Data Penjualan</span>
-                                    </a>
-                            </ul>
-                        </div>
+                    <div class="collapse" id="submenu3">
+                        <ul class="nav flex-column ms-1">
+                            <li>
+                                <a href="//localhost//website/laporan/history.php" class="nav-link px-0"> <span class="d-none d-sm-inline">History Transaksi</span></a>
+                            </li>
+                            <li>
+                                <a href="//localhost//website/laporan/data.php" class="nav-link px-0"> <span class="d-none d-sm-inline">Data Transaksi</span>
+                                </a>
+                        </ul>
+                    </div>
                 </li>
                 <!-- ini bagian PENGATURAN -->
                 <li class="nav-item">
@@ -99,7 +98,7 @@
                 </li>
                 <!-- LOGOUT -->
                 <li class="nav-item position-absolute bottom-0">
-                    <a href="#" class="nav-link px-0 align-middle">
+                    <a href="//localhost//website/logout.php" id="logouttt" class="nav-link px-0 align-middle">
                         <i class="bi bi-power"></i><span class="ms-1 d-none d-sm-inline">logout</span> </a>
                 </li>
             </ul>
@@ -107,4 +106,3 @@
         </div>
     </div>
 </body>
-

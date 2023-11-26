@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 26, 2023 at 08:40 AM
+-- Generation Time: Nov 26, 2023 at 03:51 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -117,8 +117,8 @@ CREATE TABLE `satuan` (
 
 INSERT INTO `satuan` (`id_satuan`, `nama_satuan`) VALUES
 (1, 'bongkoes'),
-(4, 'kg'),
-(2, 'pcss');
+(2, 'pcss'),
+(4, 'piring');
 
 -- --------------------------------------------------------
 
@@ -374,7 +374,7 @@ ALTER TABLE `temp_trans`
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
