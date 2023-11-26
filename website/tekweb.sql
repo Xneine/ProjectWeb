@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 25, 2023 at 05:24 PM
+-- Generation Time: Nov 26, 2023 at 04:17 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -43,6 +43,43 @@ INSERT INTO `kategori` (`id_ktg`, `Nama_Kategori`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `keterangankeluar`
+--
+
+CREATE TABLE `keterangankeluar` (
+  `id_kk` int(11) NOT NULL,
+  `nama_kk` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `keterangankeluar`
+--
+
+INSERT INTO `keterangankeluar` (`id_kk`, `nama_kk`) VALUES
+(1, 'Kadaluwarsa'),
+(2, 'Rusak');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `keteranganmasuk`
+--
+
+CREATE TABLE `keteranganmasuk` (
+  `id_km` int(11) NOT NULL,
+  `nama_km` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `keteranganmasuk`
+--
+
+INSERT INTO `keteranganmasuk` (`id_km`, `nama_km`) VALUES
+(1, 'Pembelian');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `produk`
 --
 
@@ -60,8 +97,8 @@ CREATE TABLE `produk` (
 --
 
 INSERT INTO `produk` (`id_produk`, `nama_produk`, `satuan`, `kategori`, `harga`, `stok`) VALUES
-('CILOK123', 'CILOK CHAWNIMA', 1, 9, 15000, 0),
-('KOPI123', 'KOPI Phei', 1, 10, 15000, 0);
+('CILOK123', 'CILOK CHAWNIMA', 1, 9, 12000, 20),
+('KOPI123', 'KOPI Phei', 1, 10, 15000, 80);
 
 -- --------------------------------------------------------
 
@@ -81,6 +118,49 @@ CREATE TABLE `satuan` (
 INSERT INTO `satuan` (`id_satuan`, `nama_satuan`) VALUES
 (1, 'bongkoes'),
 (2, 'pcss');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `stokkeluar`
+--
+
+CREATE TABLE `stokkeluar` (
+  `id_sk` int(11) NOT NULL,
+  `tanggal` timestamp NOT NULL DEFAULT current_timestamp(),
+  `id_produk` varchar(50) NOT NULL,
+  `jumlah` int(11) NOT NULL,
+  `id_keterangan` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `stokkeluar`
+--
+
+INSERT INTO `stokkeluar` (`id_sk`, `tanggal`, `id_produk`, `jumlah`, `id_keterangan`) VALUES
+(1, '2023-11-26 03:14:21', 'KOPI123', 20, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `stokmasuk`
+--
+
+CREATE TABLE `stokmasuk` (
+  `id_sm` int(11) NOT NULL,
+  `tanggal` timestamp NOT NULL DEFAULT current_timestamp(),
+  `id_produk` varchar(50) NOT NULL,
+  `jumlah` int(11) NOT NULL,
+  `id_keterangan` int(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `stokmasuk`
+--
+
+INSERT INTO `stokmasuk` (`id_sm`, `tanggal`, `id_produk`, `jumlah`, `id_keterangan`) VALUES
+(4, '2023-11-26 02:56:47', 'KOPI123', 100, 1),
+(5, '2023-11-26 02:58:21', 'CILOK123', 20, 1);
 
 -- --------------------------------------------------------
 
@@ -139,6 +219,18 @@ ALTER TABLE `kategori`
   ADD UNIQUE KEY `Nama_Kategori` (`Nama_Kategori`);
 
 --
+-- Indexes for table `keterangankeluar`
+--
+ALTER TABLE `keterangankeluar`
+  ADD PRIMARY KEY (`id_kk`);
+
+--
+-- Indexes for table `keteranganmasuk`
+--
+ALTER TABLE `keteranganmasuk`
+  ADD PRIMARY KEY (`id_km`);
+
+--
 -- Indexes for table `produk`
 --
 ALTER TABLE `produk`
@@ -153,6 +245,22 @@ ALTER TABLE `produk`
 ALTER TABLE `satuan`
   ADD PRIMARY KEY (`id_satuan`),
   ADD UNIQUE KEY `nama_satuan` (`nama_satuan`);
+
+--
+-- Indexes for table `stokkeluar`
+--
+ALTER TABLE `stokkeluar`
+  ADD PRIMARY KEY (`id_sk`),
+  ADD KEY `id_keterangan` (`id_keterangan`),
+  ADD KEY `id_produk` (`id_produk`);
+
+--
+-- Indexes for table `stokmasuk`
+--
+ALTER TABLE `stokmasuk`
+  ADD PRIMARY KEY (`id_sm`),
+  ADD KEY `id_keterangan` (`id_keterangan`),
+  ADD KEY `id_produk` (`id_produk`);
 
 --
 -- Indexes for table `user`
@@ -179,10 +287,34 @@ ALTER TABLE `kategori`
   MODIFY `id_ktg` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
+-- AUTO_INCREMENT for table `keterangankeluar`
+--
+ALTER TABLE `keterangankeluar`
+  MODIFY `id_kk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `keteranganmasuk`
+--
+ALTER TABLE `keteranganmasuk`
+  MODIFY `id_km` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `satuan`
 --
 ALTER TABLE `satuan`
   MODIFY `id_satuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `stokkeluar`
+--
+ALTER TABLE `stokkeluar`
+  MODIFY `id_sk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `stokmasuk`
+--
+ALTER TABLE `stokmasuk`
+  MODIFY `id_sm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
@@ -194,6 +326,20 @@ ALTER TABLE `satuan`
 ALTER TABLE `produk`
   ADD CONSTRAINT `produk_ibfk_1` FOREIGN KEY (`satuan`) REFERENCES `satuan` (`id_satuan`),
   ADD CONSTRAINT `produk_ibfk_2` FOREIGN KEY (`kategori`) REFERENCES `kategori` (`id_ktg`);
+
+--
+-- Constraints for table `stokkeluar`
+--
+ALTER TABLE `stokkeluar`
+  ADD CONSTRAINT `stokkeluar_ibfk_1` FOREIGN KEY (`id_keterangan`) REFERENCES `keterangankeluar` (`id_kk`),
+  ADD CONSTRAINT `stokkeluar_ibfk_2` FOREIGN KEY (`id_produk`) REFERENCES `produk` (`id_produk`);
+
+--
+-- Constraints for table `stokmasuk`
+--
+ALTER TABLE `stokmasuk`
+  ADD CONSTRAINT `stokmasuk_ibfk_1` FOREIGN KEY (`id_keterangan`) REFERENCES `keteranganmasuk` (`id_km`),
+  ADD CONSTRAINT `stokmasuk_ibfk_2` FOREIGN KEY (`id_produk`) REFERENCES `produk` (`id_produk`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
