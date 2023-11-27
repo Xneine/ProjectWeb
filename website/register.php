@@ -169,7 +169,7 @@
                     <div class="mt-4 text-center  mb-3">
                    
                         <div class="hh">
-                        <a href="index_1_2.php" class="btn border rounded-pill p-2 px-3">Log In</a>    
+                        <a href="index.php" class="btn border rounded-pill p-2 px-3">Log In</a>    
                         <input type="submit" class="btn border rounded-pill p-2 px-3"  value="Sign Up" id="signup">
                         </div>
                     </div>

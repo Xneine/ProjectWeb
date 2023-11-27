@@ -2,7 +2,15 @@
 include("../database.php");
 
 if (isset($_POST['btambah'])) {
-    $tambah = mysqli_query($conn, "INSERT INTO temp_trans(id_produk, jumlah) VALUES('$_POST[nproduk]', '$_POST[njumlah]')");
+    try{
+        $tambah = mysqli_query($conn, "INSERT INTO temp_trans(id_produk, jumlah) VALUES('$_POST[nproduk]', '$_POST[njumlah]')");
+    }
+    catch(mysqli_sql_exception){
+        echo '<script>
+        alert("TAMBAH GAGAL ADA (BARANG SUDAH DITAMBAHKAN)!");
+        document.location="transaksi.php";
+    </script>';
+    }
     if ($tambah) {
         echo '<script>
                     alert("SIMPAN SUKSES!");

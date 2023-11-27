@@ -76,7 +76,7 @@ include("../database.php");
                                         <h1 class="modal-title fs-5" id="staticBackdropLabel">Add Stok Keluar</h1>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
-                                    <form method="POST" action="CRUD_transaksi.php">
+                                    <form method="POST" action="CRUD_sk.php">
                                         <div class="modal-body">
                                             <div class="mb-3">
                                                 <label class="form-label">Pilih Barcode</label>

@@ -1,33 +1,32 @@
 <?php
-    include("database.php");
-    session_start();
+include("database.php");
+session_start();
 
-    if($_SERVER["REQUEST_METHOD"] == "POST"){
-        echo '<script type="text/javascript">alert("1!");</script>';
-            $username = htmlspecialchars($_POST["user"]);
-            $password = htmlspecialchars($_POST["pass"]);
-            $sql = "SELECT * FROM user WHERE username = '$username'";
-            $result = mysqli_query($conn, $sql);
-            if(mysqli_num_rows($result) > 0){
-                $row = mysqli_fetch_assoc($result);
-                if(password_verify($password, $row["password"])){
-                    echo '<script type="text/javascript">alert("Anda Berhasil Login!");</script>';
-                    $_SESSION["user"] = htmlspecialchars($_POST["user"]);
-                    header("Location: login.php");
-                    exit();
-                }
-                else{
-                    echo '<script type="text/javascript">alert("password salah!");</script>';
-                }
-            }
-            else {
-                echo '<script type="text/javascript">alert("user tidak ditemukan!");</script>';
-            }  
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    echo '<script type="text/javascript">alert("1!");</script>';
+    $username = htmlspecialchars($_POST["user"]);
+    $password = htmlspecialchars($_POST["pass"]);
+    $sql = "SELECT * FROM user WHERE username = '$username'";
+    $result = mysqli_query($conn, $sql);
+    if (mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_assoc($result);
+        if (password_verify($password, $row["password"])) {
+            echo '<script type="text/javascript">alert("Anda Berhasil Login!");</script>';
+            $_SESSION["user"] = htmlspecialchars($_POST["user"]);
+            header("Location: login.php");
+            exit();
+        } else {
+            echo '<script type="text/javascript">alert("password salah!");</script>';
+        }
+    } else {
+        echo '<script type="text/javascript">alert("user tidak ditemukan!");</script>';
     }
-    mysqli_close($conn);
+}
+mysqli_close($conn);
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -81,47 +80,49 @@
 
     </script> -->
 </head>
+
 <body>
-<div class="shadow rounded p-5 text-white bb border border-2">
-    <div>
-        <h1 class="text-center bold">Sign In</h1>
-    </div>
-    
-    <div class="d-flex justify-content-center p-3">
-        
-            <Form class="text-white" action="<?php htmlspecialchars($_SERVER["PHP_SELF"])?>" method="post">
+    <div class="shadow rounded p-5 text-white bb border border-2">
+        <div>
+            <h1 class="text-center bold">Sign In</h1>
+        </div>
+
+        <div class="d-flex justify-content-center p-3">
+
+            <Form class="text-white" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
                 <div class="mx-3 my-3 border rounded-pill p-3 act ">
-                <input type="text" namespace = "Username" id = "Username" placeholder="Username" class="text-white" required name="user">
-                <div class="d-md-inline d-none">
-                <i class="fa-regular fa-user mx-1"></i>
-                </div>
-                
+                    <input type="text" namespace="Username" id="Username" placeholder="Username" class="text-white" required name="user">
+                    <div class="d-md-inline d-none">
+                        <i class="fa-regular fa-user mx-1"></i>
+                    </div>
+
                 </div>
                 <div class="mx-3 my-3 border rounded-pill p-3 act ">
-                <input type="password" namespace = "Password" id = "Password" placeholder="Password" class="text-white" required name="pass">
-                <div  class="d-md-inline d-none">
-                <i class="fa-regular fa-eye"></i>
+                    <input type="password" namespace="Password" id="Password" placeholder="Password" class="text-white" required name="pass">
+                    <div class="d-md-inline d-none">
+                        <i class="fa-regular fa-eye"></i>
+                    </div>
+
                 </div>
-                
-            </div>
-            <div  class="text-white">
-                <p id="confirm"></p>
-            </div>
+                <div class="text-white">
+                    <p id="confirm"></p>
+                </div>
                 <div class="row mt-4 text-center mb-3">
                     <div class="col-sm-6 mb-3 hh">
-                        <input type="submit" class="btn border rounded-pill p-2 px-3"  value="Login" id="Login">
+                        <input type="submit" class="btn border rounded-pill p-2 px-3" value="Login" id="Login">
                     </div>
                     <div class="col-sm-6 hh">
-                        <a href="register_1_2.php" class="btn border rounded-pill p-2 px-3">Sign Up</a>
+                        <a href="register.php" class="btn border rounded-pill p-2 px-3">Sign Up</a>
                     </div>
-        </form>
-                
+            </form>
+
         </div>
-   
-        
+
+
     </div>
-</div>
+    </div>
 
     <script src="index.js"></script>
 </body>
+
 </html>
