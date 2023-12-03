@@ -1,10 +1,19 @@
 <?php
-
-include('header_p.php');
-    include("../database.php");
+include("../database.php");
+if (isset($_POST['bsm'])) {
+    $print = mysqli_query($conn,
+    "SELECT * 
+    FROM stokmasuk
+    WHERE EXTRACT(YEAR FROM tanggal) = EXTRACT(YEAR FROM '$_POST[ntanggal]')
+    AND EXTRACT(MONTH FROM tanggal) = EXTRACT(MONTH FROM '$_POST[ntanggal]')
+    AND EXTRACT(DAY FROM tanggal) = EXTRACT(DAY FROM '$_POST[ntanggal]')"
+    );
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,16 +25,21 @@ include('header_p.php');
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     </script>
-    <title>Stok Masuk Pegawai</title>
+    <title>History Date</title>
 </head>
+
 <body>
     <div class="container-fluid">
         <div class="row flex-nowrap">
-            <div class="container">
-                <h1 class="text-center mt-3">STOK MASUK</h1>
+            <?php
+            include("../header.php");
+            ?>
+            <div class="container col-9">
+                <h1 class="text-center mt-3">HISTORY STOK <?= $_POST['jenis']?></h1>
+
                 <div class="card mt-3">
                     <div class="card-header bg-primary text-white">
-                        Data Stok Masuk Hari Ini
+                        Data Stok <?= $_POST['jenis']?> <?= $_POST['ntanggal'] ?>
                     </div>
                     <div class="card-body">
                         <table class="table table-bordered table-striped table-hover">
@@ -33,29 +47,28 @@ include('header_p.php');
                                 <th>No</th>
                                 <th>Tanggal</th>
                                 <!-- FOREIGN KEY -->
-                                <th>Barcode(id)</th> 
+                                <th>Barcode(id)</th>
                                 <th>Nama Produk</th>
                                 <th>Jumlah</th>
                                 <!-- FOREIGN KEY -->
                                 <th>Keterangan</th>
                             </tr>
                             <?php
-                                $no = 1;
-                                $tampil = mysqli_query($conn, "SELECT * FROM stokmasuk WHERE EXTRACT(YEAR FROM tanggal) = EXTRACT(YEAR FROM current_timestamp) AND EXTRACT(MONTH FROM tanggal) = EXTRACT(MONTH FROM current_timestamp) AND EXTRACT(DAY FROM tanggal) = EXTRACT(DAY FROM current_timestamp) ORDER BY id_sm DESC");
-                                while($data = mysqli_fetch_array($tampil)):
-                                    $produk = mysqli_query($conn, "SELECT * FROM produk WHERE id_produk = '$data[id_produk]'");
-                                    $data_produk = mysqli_fetch_assoc($produk);
-                                    $keterangan = mysqli_query($conn, "SELECT * FROM keteranganmasuk WHERE id_km = '$data[id_keterangan]'");
-                                    $data_keterangan = mysqli_fetch_assoc($keterangan);
+                            $no = 1;
+                            while ($data = mysqli_fetch_array($print)) :
+                                $produk = mysqli_query($conn, "SELECT * FROM produk WHERE id_produk = '$data[id_produk]'");
+                                $data_produk = mysqli_fetch_assoc($produk);
+                                $keterangan = mysqli_query($conn, "SELECT * FROM keteranganmasuk WHERE id_km = '$data[id_keterangan]'");
+                                $data_keterangan = mysqli_fetch_assoc($keterangan);
                             ?>
-                            <tr>
-                                <td><?= $no++?></td>
-                                <td><?= $data['tanggal']?></td>
-                                <td><?= $data_produk['id_produk']?></td>
-                                <td><?= $data_produk['nama_produk']?></td>
-                                <td><?= $data['jumlah']?></td>
-                                <td><?= $data_keterangan['nama_km']?></td>
-                            </tr>
+                                <tr>
+                                    <td><?= $no++ ?></td>
+                                    <td><?= $data['tanggal'] ?></td>
+                                    <td><?= $data_produk['id_produk'] ?></td>
+                                    <td><?= $data_produk['nama_produk'] ?></td>
+                                    <td><?= $data['jumlah'] ?></td>
+                                    <td><?= $data_keterangan['nama_km'] ?></td>
+                                </tr>
                             <?php endwhile; ?>
                         </table>
                     </div>
@@ -64,4 +77,5 @@ include('header_p.php');
         </div>
     </div>
 </body>
+
 </html>

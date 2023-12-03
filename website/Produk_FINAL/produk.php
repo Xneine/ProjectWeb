@@ -22,7 +22,7 @@
           <?php
           include("../header.php");
           ?>
-            <div class="container">
+            <div class="container col-9">
                 <h1 class="text-center mt-3">DETAIL PRODUK</h1>
 
                 <div class="card mt-3">

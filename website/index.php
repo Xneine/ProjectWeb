@@ -3,7 +3,6 @@ include("database.php");
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    echo '<script type="text/javascript">alert("1!");</script>';
     $username = htmlspecialchars($_POST["user"]);
     $password = htmlspecialchars($_POST["pass"]);
     $sql = "SELECT * FROM user WHERE username = '$username'";

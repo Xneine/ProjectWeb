@@ -1,4 +1,6 @@
 <?php
+    session_start();
+    include('nonaktif.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,15 +20,15 @@
 </head>
 
 <body>
-    <nav class="navbar bg-body-tertiary fixed-top">
+    <nav class="navbar bg-body-tertiary">
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <a class="navbar-brand" href="#">Cashier</a>
+            <a class="navbar-brand" target="_blank" href="https://youtu.be/VFUos9sYbHs?feature=shared">Cashier</a>
             <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                 <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Cashier</h5>
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel"><?= $_SESSION["user"] ?></h5>
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body">
@@ -45,7 +47,7 @@
                         </li>
                         <li class="nav-item position-absolute bottom-0 mb-3">
                             <a href="//localhost//website/logout.php" class="nav-link">
-                                <i class="bi bi-power"></i><span class="ms-1 d-none d-sm-inline">logout</span> 
+                                <i class="bi bi-power"></i><span class="ms-1 d-none d-sm-inline">logout</span>
                             </a>
                         </li>
                     </ul>

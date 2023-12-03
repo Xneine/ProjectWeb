@@ -17,7 +17,6 @@ include("../database.php");
     </script>
     <title>History</title>
 </head>
-<!-- STOP UNDO -->
 
 <body>
     <div class="container-fluid">
@@ -42,42 +41,27 @@ include("../database.php");
                         </button>
                         <table class="table table-bordered table-striped table-hover">
                             <tr>
+                                <th>No</th>
                                 <th>tanggal</th>
                                 <th>Barcode(ID)</th>
                                 <th>Nama Produk</th>
                                 <th>jumlah</th>
                             </tr>
                             <?php
-                            $limit = 10;
-                            $page = isset($_GET['page']) ? $_GET['page'] : 1;
-                            $start = ($page - 1) * $limit;
-
-                            $result = mysqli_query($conn, "SELECT * FROM transaksi ORDER BY id_transaksi DESC LIMIT $start, $limit");
-
-                            while ($data = mysqli_fetch_array($result)) :
+                            $no = 1;
+                            $tampil = mysqli_query($conn, "SELECT * FROM transaksi ORDER BY id_transaksi DESC");
+                            while ($data = mysqli_fetch_array($tampil)) :
                                 $produk = mysqli_query($conn, "SELECT * FROM produk WHERE id_produk = '$data[id_produk]'");
                                 $data_produk = mysqli_fetch_assoc($produk);
                             ?>
                                 <tr>
+                                    <td><?= $no++ ?></td>
                                     <td><?= $data['tanggal'] ?></td>
                                     <td><?= $data_produk['id_produk'] ?></td>
                                     <td><?= $data_produk['nama_produk'] ?></td>
                                     <td><?= $data['jumlah'] ?></td>
                                 </tr>
                             <?php endwhile; ?>
-
-                            <?php
-                            $result_count = mysqli_query($conn, "SELECT COUNT(id_transaksi) AS total FROM transaksi");
-                            $row = mysqli_fetch_assoc($result_count);
-                            $total_records = $row['total'];
-                            $total_pages = ceil($total_records / $limit);
-
-                            echo "<ul class='pagination'>";
-                            for ($i = 1; $i <= $total_pages; $i++) {
-                                echo "<li class='page-item'><a class='page-link' href='history.php?page=$i'>$i</a></li>";
-                            }
-                            echo "</ul>";
-                            ?>
                         </table>
                     </div>
                 </div>

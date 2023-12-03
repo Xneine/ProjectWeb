@@ -81,20 +81,27 @@
                                 <a href="//localhost//website/laporan/history.php" class="nav-link px-0"> <span class="d-none d-sm-inline">History Transaksi</span></a>
                             </li>
                             <li>
+                                <a href="//localhost//website/laporan/sm_history.php" class="nav-link px-0"> <span class="d-none d-sm-inline">History Stok Masuk</span></a>
+                            </li>
+                            <li>
+                                <a href="//localhost//website/laporan/sk_history.php" class="nav-link px-0"> <span class="d-none d-sm-inline">History Stok Keluar</span></a>
+                            </li>
+                            <li>
                                 <a href="//localhost//website/laporan/data.php" class="nav-link px-0"> <span class="d-none d-sm-inline">Data Transaksi</span>
                                 </a>
+                            </li>
                         </ul>
                     </div>
                 </li>
                 <!-- ini bagian PENGATURAN -->
                 <li class="nav-item">
-                    <a href="#" class="nav-link px-0 align-middle">
+                    <a href="//localhost//website/pengaturan/pengaturan.php" class="nav-link px-0 align-middle">
                         <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Pengaturan</span> </a>
                 </li>
-                <!-- ini bagian pengguna -->
+                <!-- ini bagian Karyawan -->
                 <li class="nav-item">
-                    <a href="#" class="nav-link px-0 align-middle">
-                        <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Pengguna</span> </a>
+                    <a href="//localhost//website/karyawan/karyawan.php" class="nav-link px-0 align-middle">
+                        <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Karyawan</span> </a>
                 </li>
                 <!-- LOGOUT -->
                 <li class="nav-item position-absolute bottom-0 mb-2">

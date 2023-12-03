@@ -191,7 +191,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo '<script type="text/javascript">alert("password tidak sama!");</script>';
         } else {
             $hash = password_hash($password1, PASSWORD_DEFAULT);
-            $sql = "INSERT INTO user(username, nama_lengkap,email,phone,birth,address,password) VALUES('$username','$full_name', '$email', '$phone', '$birth', '$address' , '$hash')";
+            $sql = "INSERT INTO user(username, nama_lengkap,email,phone,birth,address,password,status) VALUES('$username','$full_name', '$email', '$phone', '$birth', '$address' , '$hash',0)";
             try {
                 mysqli_query($conn, $sql);
                 echo '<script type="text/javascript">alert("REGISTER SUKSES!");</script>';

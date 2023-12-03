@@ -22,12 +22,12 @@
           <?php
           include("../header.php");
           ?>
-            <div class="container">
+            <div class="container col-9">
                 <h1 class="text-center mt-3">STOK MASUK</h1>
 
                 <div class="card mt-3">
                     <div class="card-header bg-primary text-white">
-                        Data Stok Masuk
+                        Data Stok Masuk Hari ini
                     </div>
                     <div class="card-body">
                         <!-- Button trigger modal -->
@@ -48,7 +48,7 @@
                             </tr>
                             <?php
                                 $no = 1;
-                                $tampil = mysqli_query($conn, "SELECT * FROM stokmasuk ORDER BY id_sm DESC");
+                                $tampil = mysqli_query($conn, "SELECT * FROM stokmasuk WHERE EXTRACT(YEAR FROM tanggal) = EXTRACT(YEAR FROM current_timestamp) AND EXTRACT(MONTH FROM tanggal) = EXTRACT(MONTH FROM current_timestamp) AND EXTRACT(DAY FROM tanggal) = EXTRACT(DAY FROM current_timestamp) ORDER BY id_sm DESC");
                                 while($data = mysqli_fetch_array($tampil)):
                                     $produk = mysqli_query($conn, "SELECT * FROM produk WHERE id_produk = '$data[id_produk]'");
                                     $data_produk = mysqli_fetch_assoc($produk);

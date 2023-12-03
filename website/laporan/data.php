@@ -17,14 +17,14 @@ include("../database.php");
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>DATA</title>
 </head>
-
+<!-- STOP -->
 <body>
     <div class="container-fluid">
         <div class="row flex-nowrap">
             <?php
             include("../header.php");
             ?>
-            <div class="container">
+            <div class="container col-9">
                 <h1 class="text-center mt-3">DATA CHART</h1>
                 <form class="mb-3 col-8" method="POST" action="<?php $_SERVER['PHP_SELF'] ?>">
                     <div class="modal-body">
@@ -51,13 +51,13 @@ include("../database.php");
                 </form>
                 <div class="row">
                     <div class="col-6">
-                        <div class="chart-container" style="position: relative; height:40vh; width:80vw">
+                        <div class="chart-container" style="position: relative; height:55vh; width:35vw">
                             <canvas id="myChart1"></canvas>
                         </div>
 
                     </div>
                     <div class="col-6">
-                        <div class="chart-container" style="position: relative; height:40vh; width:80vw">
+                        <div class="chart-container" style="position: relative; height:55vh; width:35vw">
                             <canvas id="myChart2"></canvas>
                         </div>
 
