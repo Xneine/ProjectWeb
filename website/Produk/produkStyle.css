@@ -1,0 +1,20 @@
+.navbarPutih{
+    background-color: white !important;
+}
+.pageBackground{
+    background-color: #efefef;
+}
+.textMedium *{
+    font-size: 18px;
+}
+.textSmall *{
+    font-size: 16px;
+    font-weight: 400;
+}
+.showshow{
+    display: inline;
+}
+.trasparent {
+    color: red;
+    opacity: 70%;
+}
