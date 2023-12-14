@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg2"
+   width="407.84668"
+   height="418.85333"
+   viewBox="0 0 407.84668 418.85333"
+   sodipodi:docname="Tavec.ai"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs6" />
+  <sodipodi:namedview
+     id="namedview4"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1" />
+  <g
+     id="g8"
+     inkscape:groupmode="layer"
+     inkscape:label="Tavec"
+     transform="matrix(1.3333333,0,0,-1.3333333,0,418.85333)">
+    <g
+       id="g10"
+       transform="translate(60.7075,193.6126)">
+      <path
+         d="m 0,0 107.115,-125.643 h 45.437 L 1.343,51.721 H 0.299 L 0,51.466 v 0.255 H -34.577 V -124.621 H 0 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         id="path12" />
+    </g>
+    <g
+       id="g14"
+       transform="translate(60.7075,193.6126)">
+      <path
+         d="m 0,0 107.115,-125.643 h 45.437 L 1.343,51.721 H 0.299 L 0,51.466 v 0.255 H -34.577 V -124.621 H 0 Z"
+         style="fill:none;stroke:#000000;stroke-width:2.976;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+         id="path16" />
+    </g>
+    <g
+       id="g18"
+       transform="translate(245.1779,120.5276)">
+      <path
+         d="m 0,0 -107.115,125.643 h -45.437 L -1.343,-51.721 h 1.044 L 0,-51.466 v -0.255 h 34.577 v 176.342 l -34.577,0 z"
+         style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         id="path20" />
+    </g>
+    <g
+       id="g22"
+       transform="translate(245.1779,120.5276)">
+      <path
+         d="m 0,0 -107.115,125.643 h -45.437 L -1.343,-51.721 h 1.044 L 0,-51.466 v -0.255 h 34.577 v 176.342 l -34.577,0 z"
+         style="fill:none;stroke:#000000;stroke-width:2.976;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+         id="path24" />
+    </g>
+  </g>
+</svg>
