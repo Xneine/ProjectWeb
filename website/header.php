@@ -21,7 +21,7 @@
             <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                 <!-- ini bagian HOME -->
                 <li class="nav-item">
-                    <a href="//localhost//website/login.php" class="nav-link align-middle px-0">
+                    <a href="//localhost/ProjectWeb/website/login.php" class="nav-link align-middle px-0">
                         <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
                     </a>
                 </li>
@@ -34,13 +34,13 @@
                     <div class="collapse" id="submenu1">
                         <ul class="nav flex-column ms-1">
                             <li class="w-100">
-                                <a href="//localhost//website/Produk_FINAL/kategori.php" class="nav-link px-0"> <span class="d-none d-sm-inline">Kategori</span></a>
+                                <a href="//localhost/ProjectWeb/website/Produk_FINAL/kategori.php" class="nav-link px-0"> <span class="d-none d-sm-inline">Kategori</span></a>
                             </li>
                             <li>
-                                <a href="//localhost//website/Produk_FINAL/satuan.php" class="nav-link px-0"> <span class="d-none d-sm-inline">Satuan</span></a>
+                                <a href="//localhost/ProjectWeb/website/Produk_FINAL/satuan.php" class="nav-link px-0"> <span class="d-none d-sm-inline">Satuan</span></a>
                             </li>
                             <li>
-                                <a href="//localhost//website/Produk_FINAL/produk.php" class="nav-link px-0"> <span class="d-none d-sm-inline">Detail Produk</span></a>
+                                <a href="//localhost/ProjectWeb/website/Produk_FINAL/produk.php" class="nav-link px-0"> <span class="d-none d-sm-inline">Detail Produk</span></a>
                             </li>
                         </ul>
                     </div>
@@ -56,17 +56,17 @@
                     <div class="collapse" id="submenu2">
                         <ul class="nav flex-column ms-1">
                             <li class="w-100">
-                                <a href="//localhost//website/stok/stok_masuk.php" class="nav-link px-0"> <span class="d-none d-sm-inline">Stok Masuk</span></a>
+                                <a href="//localhost/ProjectWeb/website/stok/stok_masuk.php" class="nav-link px-0"> <span class="d-none d-sm-inline">Stok Masuk</span></a>
                             </li>
                             <li>
-                                <a href="//localhost//website/stok/stok_keluar.php" class="nav-link px-0"> <span class="d-none d-sm-inline">Stok Keluar</span></a>
+                                <a href="//localhost/ProjectWeb/website/stok/stok_keluar.php" class="nav-link px-0"> <span class="d-none d-sm-inline">Stok Keluar</span></a>
                             </li>
                         </ul>
                     </div>
                 </li>
                 <!-- ini bagian TRANSAKSI -->
                 <!-- <li class="nav-item">
-                    <a href="//localhost//website/transaksi/transaksi.php" class="nav-link px-0 align-middle">
+                    <a href="//localhost/ProjectWeb/website/transaksi/transaksi.php" class="nav-link px-0 align-middle">
                         <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Transaksi</span> </a>
                 </li> -->
                 <!-- ini bagian LAPORAN -->
@@ -78,16 +78,16 @@
                     <div class="collapse" id="submenu3">
                         <ul class="nav flex-column ms-1">
                             <li>
-                                <a href="//localhost//website/laporan/history.php" class="nav-link px-0"> <span class="d-none d-sm-inline">History Transaksi</span></a>
+                                <a href="//localhost/ProjectWeb/website/laporan/history.php" class="nav-link px-0"> <span class="d-none d-sm-inline">History Transaksi</span></a>
                             </li>
                             <li>
-                                <a href="//localhost//website/laporan/sm_history.php" class="nav-link px-0"> <span class="d-none d-sm-inline">History Stok Masuk</span></a>
+                                <a href="//localhost/ProjectWeb/website/laporan/sm_history.php" class="nav-link px-0"> <span class="d-none d-sm-inline">History Stok Masuk</span></a>
                             </li>
                             <li>
-                                <a href="//localhost//website/laporan/sk_history.php" class="nav-link px-0"> <span class="d-none d-sm-inline">History Stok Keluar</span></a>
+                                <a href="//localhost/ProjectWeb/website/laporan/sk_history.php" class="nav-link px-0"> <span class="d-none d-sm-inline">History Stok Keluar</span></a>
                             </li>
                             <li>
-                                <a href="//localhost//website/laporan/data.php" class="nav-link px-0"> <span class="d-none d-sm-inline">Data Transaksi</span>
+                                <a href="//localhost/ProjectWeb/website/laporan/data.php" class="nav-link px-0"> <span class="d-none d-sm-inline">Data Transaksi</span>
                                 </a>
                             </li>
                         </ul>
@@ -95,17 +95,17 @@
                 </li>
                 <!-- ini bagian PENGATURAN -->
                 <li class="nav-item">
-                    <a href="//localhost//website/pengaturan/pengaturan.php" class="nav-link px-0 align-middle">
+                    <a href="//localhost/ProjectWeb/website/pengaturan/pengaturan.php" class="nav-link px-0 align-middle">
                         <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Pengaturan</span> </a>
                 </li>
                 <!-- ini bagian Karyawan -->
                 <li class="nav-item">
-                    <a href="//localhost//website/karyawan/karyawan.php" class="nav-link px-0 align-middle">
+                    <a href="//localhost/ProjectWeb/website/karyawan/karyawan.php" class="nav-link px-0 align-middle">
                         <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Karyawan</span> </a>
                 </li>
                 <!-- LOGOUT -->
                 <li class="nav-item position-absolute bottom-0 mb-2">
-                    <a href="//localhost//website/logout.php" id="logouttt" class="nav-link px-0 align-middle">
+                    <a href="//localhost/ProjectWeb/website/logout.php" id="logouttt" class="nav-link px-0 align-middle">
                         <i class="bi bi-power"></i><span class="ms-1 d-none d-sm-inline">logout</span> </a>
                 </li>
             </ul>

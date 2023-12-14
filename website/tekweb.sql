@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 03, 2023 at 06:03 AM
+-- Generation Time: Dec 14, 2023 at 05:28 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -55,6 +55,7 @@ CREATE TABLE `kategori` (
 --
 
 INSERT INTO `kategori` (`id_ktg`, `Nama_Kategori`) VALUES
+(16, 'Air'),
 (14, 'Barang'),
 (9, 'Makanan'),
 (10, 'Minuman');
@@ -116,6 +117,7 @@ CREATE TABLE `produk` (
 --
 
 INSERT INTO `produk` (`id_produk`, `nama_produk`, `satuan`, `kategori`, `harga`, `stok`) VALUES
+('AQUA001', 'Aqua', 7, 16, 4000, 0),
 ('CILOK123', 'CILOK CHAWNIMA', 1, 9, 12000, 40),
 ('KOPI123', 'KOPI Phei', 1, 10, 15000, 35),
 ('NASGOR123', 'Nasgor Bang Sat', 4, 9, 25000, 45),
@@ -138,6 +140,7 @@ CREATE TABLE `satuan` (
 
 INSERT INTO `satuan` (`id_satuan`, `nama_satuan`) VALUES
 (1, 'bongkoes'),
+(7, 'liter'),
 (2, 'pcs'),
 (4, 'piring');
 
@@ -167,7 +170,8 @@ INSERT INTO `stokkeluar` (`id_sk`, `tanggal`, `id_produk`, `jumlah`, `id_keteran
 (5, '2023-12-02 15:11:20', 'NASGOR123', 5, 1),
 (6, '2023-12-02 15:11:31', 'KOPI123', 10, 1),
 (7, '2023-12-02 15:11:39', 'CILOK123', 15, 2),
-(8, '2023-12-03 04:26:37', 'RAMEN123', 1, 2);
+(8, '2023-12-03 04:26:37', 'RAMEN123', 1, 2),
+(11, '2023-12-14 16:14:42', 'AQUA001', 12, 2);
 
 -- --------------------------------------------------------
 
@@ -199,7 +203,8 @@ INSERT INTO `stokmasuk` (`id_sm`, `tanggal`, `id_produk`, `jumlah`, `id_keterang
 (12, '2023-12-02 16:41:32', 'NASGOR123', 5, 1),
 (13, '2023-12-02 16:41:41', 'KOPI123', 5, 1),
 (14, '2023-12-02 16:41:48', 'CILOK123', 5, 1),
-(15, '2023-12-03 04:26:04', 'RAMEN123', 10, 1);
+(15, '2023-12-03 04:26:04', 'RAMEN123', 10, 1),
+(16, '2023-12-14 16:13:30', 'AQUA001', 12, 1);
 
 -- --------------------------------------------------------
 
@@ -276,6 +281,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`username`, `nama_lengkap`, `email`, `phone`, `birth`, `address`, `password`, `status`) VALUES
+('nekolynx', 'Timothy', 'c14220108@john.petra.ac.id', '+6200000000', '2004-09-14', 'Dekat di dalam hatimu', '$2y$10$G9gQ6A0lQBtaj2YmjzVfFOnKh/KsIPfJyDkYC9FIeUBsC7YROYP4O', 1),
 ('Vincent', 'Vincentius', 'c14220249@john.petra.ac.id', '082232592707', '2004-02-17', 'siwalankerto', '$2y$10$rE1/cVVOq9LnFc7S/vADdeSv9erH6.vGRqo4WXsDhsgpGrllPIWRq', 0),
 ('xneine', 'Alan Jonathan Raharjo', 'c14220291@john.petra.ac.id', '12345', '2023-12-12', 'siwalan', '$2y$10$AYqWsV1mNVaLB0MTaHGzwe7n9SAJoaGF8hhAx/mKIZZehcocCNsCa', 1);
 
@@ -398,7 +404,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `kategori`
 --
 ALTER TABLE `kategori`
-  MODIFY `id_ktg` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_ktg` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `keterangankeluar`
@@ -416,19 +422,19 @@ ALTER TABLE `keteranganmasuk`
 -- AUTO_INCREMENT for table `satuan`
 --
 ALTER TABLE `satuan`
-  MODIFY `id_satuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_satuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `stokkeluar`
 --
 ALTER TABLE `stokkeluar`
-  MODIFY `id_sk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_sk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `stokmasuk`
 --
 ALTER TABLE `stokmasuk`
-  MODIFY `id_sm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_sm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `temp_trans`
