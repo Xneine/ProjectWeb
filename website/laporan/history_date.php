@@ -54,6 +54,8 @@ $print = mysqli_query(
                                 <th>Barcode(ID)</th>
                                 <th>Nama Produk</th>
                                 <th>jumlah</th>
+                                <th>total</th>
+                                <th>pembayaran</th>
                             </tr>
                             <?php
                             $no = 1;
@@ -67,6 +69,8 @@ $print = mysqli_query(
                                     <td><?= $data_produk['id_produk'] ?></td>
                                     <td><?= $data_produk['nama_produk'] ?></td>
                                     <td><?= $data['jumlah'] ?></td>
+                                    <td><?= $data['total'] ?></td>
+                                    <td><?= $data['pembayaran'] ?></td>
                                 </tr>
                             <?php endwhile; ?>
                         </table>

@@ -1,7 +1,7 @@
 <?php
-    include('header_p.php');
-    include("../database.php");
-    $total = 0;
+include('header_p.php');
+include("../database.php");
+$total = 0;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,15 +35,23 @@
                             <div class="modal-body">
                                 <div class="mb-3">
                                     <label class="form-label">Pilih Barcode</label>
-                                    <select class="form-select" name="nproduk" id="fpro">
-                                        <option></option>
+                                    <select class="form-select" name="nproduk" id="fpro" required>
+                                        <option value="<?= null ?>"></option>
                                         <?php
                                         $propro = mysqli_query($conn, "SELECT * FROM produk ORDER BY id_produk DESC");
+                                        $jumlah;
                                         while ($hehe = mysqli_fetch_array($propro)) :
+                                            $keranjang = mysqli_query($conn, "SELECT * FROM temp_trans WHERE id_produk = '$hehe[id_produk]'");
+                                            if ($keranjang) {
+                                                $row = mysqli_fetch_assoc($keranjang);
+                                                $jumlah = $row['jumlah'];
+                                            } else {
+                                                $jumlah = 0;
+                                            }
                                         ?>
-                                            <option value="<?= $hehe['id_produk'] ?>" data-stok="<?= $hehe['stok'] ?>">
+                                            <option value="<?= $hehe['id_produk'] ?>" data-stok="<?= $hehe['stok'] - $jumlah ?>">
                                                 <?php
-                                                echo $hehe['id_produk']
+                                                echo "$hehe[id_produk] - $hehe[nama_produk]";
                                                 ?>
                                             </option>
                                         <?php endwhile; ?>
@@ -51,7 +59,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Jumlah</label>
-                                    <input type="number" class="form-control" name="njumlah" min="1" step="1" id="maxStok">
+                                    <input type="number" class="form-control" name="njumlah" min="1" step="1" id="maxStok" required>
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -66,6 +74,7 @@
                                 <th>Nama Produk</th>
                                 <th>Harga</th>
                                 <th>Jumlah</th>
+                                <th>total</th>
                                 <th>Aksi</th>
                             </tr>
                             <?php
@@ -82,7 +91,9 @@
                                     <td><?= $data_produk['nama_produk'] ?></td>
                                     <td><?= $data_produk['harga'] ?></td>
                                     <td><?= $data['jumlah'] ?></td>
+                                    <td><?= $data['jumlah'] * $data_produk['harga'] ?></td>
                                     <td>
+                                        <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editModal<?= $no ?>">Edit</a>
                                         <a href="#" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal<?= $no ?>">Hapus</a>
                                     </td>
                                 </tr>
@@ -110,6 +121,31 @@
                                     </div>
                                 </div>
                                 <!-- Akhir Modal DELETE-->
+                                <!-- Awal Modal EDIT-->
+                                <div class="modal fade" id="editModal<?= $no ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit jumlah <?= $data_produk['nama_produk'] ?></h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <form method="POST" action="CRUD_transaksi_p.php">
+                                                <input type="hidden" name="idtemp" value="<?= $data['id_temp'] ?>">
+                                                <div class="modal-body">
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Jumlah</label>
+                                                        <input type="number" class="form-control" placeholder="<?= $data['jumlah'] ?>" name="njumlahh" min="1" max="<?= $data_produk['stok'] ?>" step="1" required>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Keluar</button>
+                                                    <button type="submit" class="btn btn-primary" name="bedit">Edit</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Akhir Modal EDIT-->
                             <?php endwhile; ?>
                         </table>
                         <!-- SHOW TOTAL -->
@@ -136,12 +172,32 @@
                                     <form method="POST" action="CRUD_transaksi_p.php">
                                         <div class="modal-body">
                                             <div class="mb-3">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="Qris" required>
+                                                    <label class="form-check-label" for="flexRadioDefault1">
+                                                        Qris
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="Transfer" required>
+                                                    <label class="form-check-label" for="flexRadioDefault2">
+                                                        Transfer
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" value="Tunai" required>
+                                                    <label class="form-check-label" for="flexRadioDefault3">
+                                                        Tunai
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3" id="capek">
                                                 <label class="form-label">Jumlah Uang</label>
                                                 <input type="number" class="form-control" name="nbayar" id="bayar" min="<?= $total ?>">
                                             </div>
-                                            <div class="mb-3">
-                                                <label id="kembalian" class="form-label">
-                                                </label>
+                                            <div class="mb-3" id="capekk">
+                                                <div id="kembalian" class="form-label">
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
@@ -159,7 +215,32 @@
         </div>
     </div>
     <script>
+        $(document).ready(function() {
+            $("#capek").hide();
+            $("#flexRadioDefault3").click(function() {
+                $("#bayar").val(0);
+                // $("#kembalian").text($total);
+                $("#capek").show();
+                $("#capekk").show();
+            });
+            $("#flexRadioDefault1").click(function() {
+                $("#bayar").val(<?=$total?>);
+                $("#capek").hide();
+                $("#capekk").hide();
+            });
+            $("#flexRadioDefault2").click(function() {
+                $("#bayar").val(<?=$total?>);
+                $("#capek").hide();
+                $("#capekk").hide();
+            });
+        });
+    </script>
+    <script>
         document.getElementById('bayar').addEventListener('input', function() {
+            var kembalian = document.getElementById('bayar').value - <?= $total ?>;
+            document.getElementById('kembalian').textContent = 'kembalian : ' + kembalian;
+        });
+        document.getElementById('bayar').addEventListener('change', function() {
             var kembalian = document.getElementById('bayar').value - <?= $total ?>;
             document.getElementById('kembalian').textContent = 'kembalian : ' + kembalian;
         });

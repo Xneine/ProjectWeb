@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 03, 2023 at 06:03 AM
+-- Generation Time: Dec 15, 2023 at 06:24 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -117,9 +117,9 @@ CREATE TABLE `produk` (
 
 INSERT INTO `produk` (`id_produk`, `nama_produk`, `satuan`, `kategori`, `harga`, `stok`) VALUES
 ('CILOK123', 'CILOK CHAWNIMA', 1, 9, 12000, 40),
-('KOPI123', 'KOPI Phei', 1, 10, 15000, 35),
-('NASGOR123', 'Nasgor Bang Sat', 4, 9, 25000, 45),
-('RAMEN123', 'Ramen Bakso', 4, 9, 298000, 9);
+('KOPI123', 'KOPI Phei', 1, 10, 15000, 30),
+('NASGOR123', 'Nasgor Bang Sat', 4, 9, 25000, 41),
+('RAMEN123', 'Ramen Bakso', 4, 9, 298000, 5);
 
 -- --------------------------------------------------------
 
@@ -199,7 +199,9 @@ INSERT INTO `stokmasuk` (`id_sm`, `tanggal`, `id_produk`, `jumlah`, `id_keterang
 (12, '2023-12-02 16:41:32', 'NASGOR123', 5, 1),
 (13, '2023-12-02 16:41:41', 'KOPI123', 5, 1),
 (14, '2023-12-02 16:41:48', 'CILOK123', 5, 1),
-(15, '2023-12-03 04:26:04', 'RAMEN123', 10, 1);
+(15, '2023-12-03 04:26:04', 'RAMEN123', 10, 1),
+(16, '2023-12-04 18:11:11', 'RAMEN123', 6, 1),
+(17, '2023-12-15 05:10:49', 'RAMEN123', 10, 1);
 
 -- --------------------------------------------------------
 
@@ -210,15 +212,9 @@ INSERT INTO `stokmasuk` (`id_sm`, `tanggal`, `id_produk`, `jumlah`, `id_keterang
 CREATE TABLE `temp_trans` (
   `id_temp` int(11) NOT NULL,
   `id_produk` varchar(50) NOT NULL,
-  `jumlah` int(50) NOT NULL
+  `jumlah` int(50) NOT NULL,
+  `total` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `temp_trans`
---
-
-INSERT INTO `temp_trans` (`id_temp`, `id_produk`, `jumlah`) VALUES
-(30, 'RAMEN123', 1);
 
 -- --------------------------------------------------------
 
@@ -230,29 +226,36 @@ CREATE TABLE `transaksi` (
   `id_transaksi` int(11) NOT NULL,
   `tanggal` timestamp NOT NULL DEFAULT current_timestamp(),
   `id_produk` varchar(50) NOT NULL,
-  `jumlah` int(50) NOT NULL
+  `jumlah` int(50) NOT NULL,
+  `total` int(50) NOT NULL,
+  `pembayaran` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `transaksi`
 --
 
-INSERT INTO `transaksi` (`id_transaksi`, `tanggal`, `id_produk`, `jumlah`) VALUES
-(1, '2023-11-26 07:27:54', 'KOPI123', 5),
-(2, '2023-11-26 07:27:54', 'CILOK123', 5),
-(3, '2023-11-26 14:59:04', 'NASGOR123', 2),
-(4, '2023-11-26 14:59:04', 'KOPI123', 2),
-(5, '2023-11-26 14:59:04', 'CILOK123', 1),
-(6, '2023-11-27 06:50:39', 'KOPI123', 5),
-(7, '2023-11-27 06:50:39', 'NASGOR123', 1),
-(9, '2023-11-27 07:19:13', 'NASGOR123', 5),
-(10, '2023-11-27 07:20:02', 'NASGOR123', 2),
-(11, '2023-11-27 12:51:54', 'NASGOR123', 5),
-(12, '2023-11-27 12:51:54', 'KOPI123', 2),
-(14, '2023-11-27 14:12:11', 'KOPI123', 3),
-(15, '2023-11-27 14:12:38', 'KOPI123', 1),
-(16, '2023-12-02 15:18:12', 'NASGOR123', 5),
-(17, '2023-12-02 15:21:40', 'KOPI123', 10);
+INSERT INTO `transaksi` (`id_transaksi`, `tanggal`, `id_produk`, `jumlah`, `total`, `pembayaran`) VALUES
+(1, '2023-11-26 07:27:54', 'KOPI123', 5, 75000, 'Tunai'),
+(2, '2023-11-26 07:27:54', 'CILOK123', 5, 60000, 'Tunai'),
+(3, '2023-11-26 14:59:04', 'NASGOR123', 2, 50000, 'Tunai'),
+(4, '2023-11-26 14:59:04', 'KOPI123', 2, 30000, 'Tunai'),
+(5, '2023-11-26 14:59:04', 'CILOK123', 1, 12000, 'Tunai'),
+(6, '2023-11-27 06:50:39', 'KOPI123', 5, 75000, 'Tunai'),
+(7, '2023-11-27 06:50:39', 'NASGOR123', 1, 25000, 'Tunai'),
+(9, '2023-11-27 07:19:13', 'NASGOR123', 5, 125000, 'Tunai'),
+(10, '2023-11-27 07:20:02', 'NASGOR123', 2, 50000, 'Tunai'),
+(11, '2023-11-27 12:51:54', 'NASGOR123', 5, 125000, 'Tunai'),
+(12, '2023-11-27 12:51:54', 'KOPI123', 2, 30000, 'Tunai'),
+(14, '2023-11-27 14:12:11', 'KOPI123', 3, 45000, 'Tunai'),
+(15, '2023-11-27 14:12:38', 'KOPI123', 1, 15000, 'Tunai'),
+(16, '2023-12-02 15:18:12', 'NASGOR123', 5, 125000, 'Tunai'),
+(17, '2023-12-02 15:21:40', 'KOPI123', 10, 150000, 'Tunai'),
+(19, '2023-12-15 05:11:54', 'RAMEN123', 3, 596000, 'Qris'),
+(20, '2023-12-15 05:22:25', 'RAMEN123', 4, 596000, 'Transfer'),
+(21, '2023-12-15 05:22:25', 'NASGOR123', 2, 50000, 'Transfer'),
+(22, '2023-12-15 05:22:25', 'KOPI123', 5, 45000, 'Transfer'),
+(23, '2023-12-15 05:23:34', 'RAMEN123', 1, 298000, 'Tunai');
 
 -- --------------------------------------------------------
 
@@ -428,19 +431,19 @@ ALTER TABLE `stokkeluar`
 -- AUTO_INCREMENT for table `stokmasuk`
 --
 ALTER TABLE `stokmasuk`
-  MODIFY `id_sm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_sm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `temp_trans`
 --
 ALTER TABLE `temp_trans`
-  MODIFY `id_temp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id_temp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- Constraints for dumped tables

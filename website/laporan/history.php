@@ -38,7 +38,7 @@ include("../database.php");
                             PRINT
                         </button>
                         <button type="button" class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#dateModal">
-                            SORT DATE
+                            SEARCH DATE
                         </button>
                         <table class="table table-bordered table-striped table-hover">
                             <tr>
@@ -46,6 +46,8 @@ include("../database.php");
                                 <th>Barcode(ID)</th>
                                 <th>Nama Produk</th>
                                 <th>jumlah</th>
+                                <th>total</th>
+                                <th>Pembayaran</th>
                             </tr>
                             <?php
                             $limit = 10;
@@ -63,6 +65,8 @@ include("../database.php");
                                     <td><?= $data_produk['id_produk'] ?></td>
                                     <td><?= $data_produk['nama_produk'] ?></td>
                                     <td><?= $data['jumlah'] ?></td>
+                                    <td><?= $data['total'] ?></td>
+                                    <td><?= $data['pembayaran'] ?></td>
                                 </tr>
                             <?php endwhile; ?>
 

@@ -1,8 +1,9 @@
 <?php
 include("../database.php");
 if (isset($_POST['bprint'])) {
-    $print = mysqli_query($conn,
-    "SELECT * 
+    $print = mysqli_query(
+        $conn,
+        "SELECT * 
     FROM transaksi 
     WHERE EXTRACT(YEAR FROM tanggal) = EXTRACT(YEAR FROM '$_POST[ntanggal]')
     AND EXTRACT(MONTH FROM tanggal) = EXTRACT(MONTH FROM '$_POST[ntanggal]')
@@ -33,7 +34,7 @@ if (isset($_POST['bprint'])) {
 
         <div class="card mt-3">
             <div class="card-header bg-primary text-white">
-                Data Transaksi Tanggal <?= $_POST['ntanggal']?>
+                Data Transaksi Tanggal <?= $_POST['ntanggal'] ?>
             </div>
             <div class="card-body">
                 <table class="table table-bordered table-striped table-hover">
@@ -43,6 +44,8 @@ if (isset($_POST['bprint'])) {
                         <th>Barcode(ID)</th>
                         <th>Nama Produk</th>
                         <th>jumlah</th>
+                        <th>total</th>
+                        <th>pembayaran</th>
                     </tr>
                     <?php
                     $no = 1;
@@ -56,6 +59,8 @@ if (isset($_POST['bprint'])) {
                             <td><?= $data_produk['id_produk'] ?></td>
                             <td><?= $data_produk['nama_produk'] ?></td>
                             <td><?= $data['jumlah'] ?></td>
+                            <td><?= $data['total'] ?></td>
+                            <td><?= $data['pembayaran'] ?></td>
                         </tr>
                     <?php endwhile; ?>
                 </table>
@@ -66,4 +71,5 @@ if (isset($_POST['bprint'])) {
         window.print();
     </script>
 </body>
+
 </html>
