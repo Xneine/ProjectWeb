@@ -3,7 +3,7 @@ include("../database.php");
 if (isset($_POST['bganti'])) {
     $pass1 = $_POST["passwordganti"];
     $pass2 = $_POST["passconf"];
-    if($pass1 == $pass2){
+    if ($pass1 == $pass2) {
         $ulama = htmlspecialchars($_POST['user']);
         $plama = htmlspecialchars($_POST['password']);
         $ubaru = htmlspecialchars($_POST['userganti']);
@@ -34,11 +34,14 @@ if (isset($_POST['bganti'])) {
                 alert("USER TIDAK DITEMUKAN!");
                     </script>';
         }
+    } else {
+        echo '<script>
+            alert("Password tidak cocok!");
+                </script>';
     }
-    
-    }
-   
-   
+}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -68,7 +71,7 @@ if (isset($_POST['bganti'])) {
                     $("#iconpass1").attr("class", "bi bi-eye")
                 } else if ($("#iconpass1").attr("class") === "bi bi-eye") {
                     $("#iconpass1").attr("class", "bi bi-eye-slash")
-                } 
+                }
 
             })
             $("#iconpass2").click(function() {
@@ -90,10 +93,10 @@ if (isset($_POST['bganti'])) {
             //         alert("Password Don't Match")
             //     }
             // })
-            $("#bganti").click(function(){
+            $("#bganti").click(function() {
                 var pass1 = $("#passnew");
                 var pass2 = $("#confpass");
-                if(pass1 != pass2){
+                if (pass1 != pass2) {
                     $("#conf").append("<p><span class = text-danger>*</span>password baru dengan konfirmasi tidak cocok</p>");
                 }
             })
@@ -120,7 +123,7 @@ if (isset($_POST['bganti'])) {
                     <div class="card-body">
                         <form method="POST" action="<?php $_SERVER['PHP_SELF'] ?>">
                             <div class="row">
-                            <div class="col-4">
+                                <div class="col-4">
                                     <div class="mb-3">
                                         <label class="form-label">Username Lama</label>
                                         <input type="text" class="form-control" name="user">
@@ -138,16 +141,16 @@ if (isset($_POST['bganti'])) {
                                     <div class="mb-3">
                                         <label class="form-label">Password Baru</label>
                                         <div class="input-group mb-3">
-                                                <span class="input-group-text" id="iconpass1"><i class="bi bi-eye-slash"></i></span>
-                                                <input type="password" class="form-control" name="passwordganti" id="passnew">
+                                            <span class="input-group-text" id="iconpass1"><i class="bi bi-eye-slash"></i></span>
+                                            <input type="password" class="form-control" name="passwordganti" id="passnew">
                                         </div>
-                                       
+
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">Konfirmasi Password Baru</label>
                                         <div class="input-group mb-3">
-                                                <span class="input-group-text" id="iconpass2"><i class="bi bi-eye-slash"></i></span>
-                                                <input type="password" class="form-control"  name="passconf" id="confpass">
+                                            <span class="input-group-text" id="iconpass2"><i class="bi bi-eye-slash"></i></span>
+                                            <input type="password" class="form-control" name="passconf" id="confpass">
                                         </div>
                                     </div>
                                 </div>
